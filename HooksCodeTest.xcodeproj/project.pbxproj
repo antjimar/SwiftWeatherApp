@@ -11,6 +11,7 @@
 		79CAE3341C18B08F000231E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79CAE3331C18B08F000231E8 /* Assets.xcassets */; };
 		79CAE3371C18B08F000231E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79CAE3351C18B08F000231E8 /* LaunchScreen.storyboard */; };
 		79CAE3421C18B08F000231E8 /* HooksCodeTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3411C18B08F000231E8 /* HooksCodeTestTests.swift */; };
+		79CAE34D1C18B136000231E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE34C1C18B136000231E8 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		79CAE33D1C18B08F000231E8 /* HooksCodeTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HooksCodeTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79CAE3411C18B08F000231E8 /* HooksCodeTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HooksCodeTestTests.swift; sourceTree = "<group>"; };
 		79CAE3431C18B08F000231E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79CAE34C1C18B136000231E8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +76,10 @@
 			isa = PBXGroup;
 			children = (
 				79CAE3311C18B08F000231E8 /* AppDelegate.swift */,
+				79CAE34C1C18B136000231E8 /* Constants.swift */,
+				79CAE3381C18B08F000231E8 /* Info.plist */,
 				79CAE3331C18B08F000231E8 /* Assets.xcassets */,
 				79CAE3351C18B08F000231E8 /* LaunchScreen.storyboard */,
-				79CAE3381C18B08F000231E8 /* Info.plist */,
 			);
 			path = HooksCodeTest;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79CAE3321C18B08F000231E8 /* AppDelegate.swift in Sources */,
+				79CAE34D1C18B136000231E8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HooksCodeTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.antjimar.HooksCodeTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -321,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HooksCodeTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.antjimar.HooksCodeTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
