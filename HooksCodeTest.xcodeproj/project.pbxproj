@@ -19,6 +19,11 @@
 		79CAE3611C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3601C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift */; };
 		79CAE3631C18BAF8000231E8 /* CurrentWeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3621C18BAF8000231E8 /* CurrentWeatherInteractor.swift */; };
 		79CAE3651C18BB1B000231E8 /* FiveDaysForecastInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3641C18BB1B000231E8 /* FiveDaysForecastInteractor.swift */; };
+		79CAE3671C18BB9A000231E8 /* NSManagedObjectContext+ChangeContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3661C18BB9A000231E8 /* NSManagedObjectContext+ChangeContext.swift */; };
+		79CAE36F1C18C095000231E8 /* WeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE36E1C18C095000231E8 /* WeatherProvider.swift */; };
+		79CAE3731C18C1A3000231E8 /* HTTPRequestManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3721C18C1A3000231E8 /* HTTPRequestManagerFactory.swift */; };
+		79CAE3751C18C1E6000231E8 /* HTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3741C18C1E6000231E8 /* HTTPRequestManager.swift */; };
+		79CAE3771C18C244000231E8 /* HTTPSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3761C18C244000231E8 /* HTTPSessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		79CAE3601C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManagerProtocol.swift; sourceTree = "<group>"; };
 		79CAE3621C18BAF8000231E8 /* CurrentWeatherInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherInteractor.swift; sourceTree = "<group>"; };
 		79CAE3641C18BB1B000231E8 /* FiveDaysForecastInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveDaysForecastInteractor.swift; sourceTree = "<group>"; };
+		79CAE3661C18BB9A000231E8 /* NSManagedObjectContext+ChangeContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+ChangeContext.swift"; sourceTree = "<group>"; };
+		79CAE36E1C18C095000231E8 /* WeatherProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherProvider.swift; sourceTree = "<group>"; };
+		79CAE3721C18C1A3000231E8 /* HTTPRequestManagerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManagerFactory.swift; sourceTree = "<group>"; };
+		79CAE3741C18C1E6000231E8 /* HTTPRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManager.swift; sourceTree = "<group>"; };
+		79CAE3761C18C244000231E8 /* HTTPSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPSessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +99,12 @@
 		79CAE3301C18B08F000231E8 /* HooksCodeTest */ = {
 			isa = PBXGroup;
 			children = (
-				79CAE34F1C18B51D000231E8 /* Shared */,
-				79CAE34E1C18B514000231E8 /* UI */,
 				79CAE3311C18B08F000231E8 /* AppDelegate.swift */,
-				79CAE3331C18B08F000231E8 /* Assets.xcassets */,
 				79CAE34C1C18B136000231E8 /* Constants.swift */,
 				79CAE3381C18B08F000231E8 /* Info.plist */,
+				79CAE34F1C18B51D000231E8 /* Shared */,
+				79CAE34E1C18B514000231E8 /* UI */,
+				79CAE3331C18B08F000231E8 /* Assets.xcassets */,
 				79CAE3351C18B08F000231E8 /* LaunchScreen.storyboard */,
 			);
 			path = HooksCodeTest;
@@ -139,6 +149,7 @@
 			children = (
 				79CAE3531C18B571000231E8 /* Network */,
 				79CAE3541C18B57C000231E8 /* Storage */,
+				79CAE36E1C18C095000231E8 /* WeatherProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -147,6 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				79CAE3601C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift */,
+				79CAE3721C18C1A3000231E8 /* HTTPRequestManagerFactory.swift */,
+				79CAE3741C18C1E6000231E8 /* HTTPRequestManager.swift */,
+				79CAE3761C18C244000231E8 /* HTTPSessionManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -164,6 +178,7 @@
 			children = (
 				79CAE3591C18B8AE000231E8 /* Entities */,
 				79CAE35E1C18B915000231E8 /* CoreDataContextManager.swift */,
+				79CAE3661C18BB9A000231E8 /* NSManagedObjectContext+ChangeContext.swift */,
 				79CAE3561C18B5A7000231E8 /* DataModel.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -280,11 +295,16 @@
 			files = (
 				79CAE35F1C18B915000231E8 /* CoreDataContextManager.swift in Sources */,
 				79CAE3581C18B5A7000231E8 /* DataModel.xcdatamodeld in Sources */,
+				79CAE3731C18C1A3000231E8 /* HTTPRequestManagerFactory.swift in Sources */,
+				79CAE36F1C18C095000231E8 /* WeatherProvider.swift in Sources */,
+				79CAE3751C18C1E6000231E8 /* HTTPRequestManager.swift in Sources */,
 				79CAE35C1C18B8DA000231E8 /* WeatherEntity+CoreDataProperties.swift in Sources */,
+				79CAE3771C18C244000231E8 /* HTTPSessionManager.swift in Sources */,
 				79CAE3651C18BB1B000231E8 /* FiveDaysForecastInteractor.swift in Sources */,
 				79CAE35D1C18B8DA000231E8 /* WeatherEntity.swift in Sources */,
 				79CAE3611C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift in Sources */,
 				79CAE3321C18B08F000231E8 /* AppDelegate.swift in Sources */,
+				79CAE3671C18BB9A000231E8 /* NSManagedObjectContext+ChangeContext.swift in Sources */,
 				79CAE34D1C18B136000231E8 /* Constants.swift in Sources */,
 				79CAE3631C18BAF8000231E8 /* CurrentWeatherInteractor.swift in Sources */,
 			);

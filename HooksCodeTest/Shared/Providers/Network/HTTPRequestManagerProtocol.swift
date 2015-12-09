@@ -10,4 +10,9 @@ import Foundation
 
 protocol HTTPRequestManagerProtocol {
     
+    func GET(URLString: String,
+        parameters: [String: String]?,
+        currentTask: ((task: NSURLSessionDataTask, responseObject: [String: AnyObject]?) -> Void)?,
+        success: ((task: NSURLSessionDataTask, responseObject: [String: AnyObject]?)-> Void)?,
+        failure: ((task :NSURLSessionDataTask, error: NSError)-> Void)?)
 }
