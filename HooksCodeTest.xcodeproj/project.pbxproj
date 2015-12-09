@@ -17,6 +17,8 @@
 		79CAE35D1C18B8DA000231E8 /* WeatherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE35B1C18B8DA000231E8 /* WeatherEntity.swift */; };
 		79CAE35F1C18B915000231E8 /* CoreDataContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE35E1C18B915000231E8 /* CoreDataContextManager.swift */; };
 		79CAE3611C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3601C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift */; };
+		79CAE3631C18BAF8000231E8 /* CurrentWeatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3621C18BAF8000231E8 /* CurrentWeatherInteractor.swift */; };
+		79CAE3651C18BB1B000231E8 /* FiveDaysForecastInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3641C18BB1B000231E8 /* FiveDaysForecastInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		79CAE35B1C18B8DA000231E8 /* WeatherEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherEntity.swift; sourceTree = "<group>"; };
 		79CAE35E1C18B915000231E8 /* CoreDataContextManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataContextManager.swift; sourceTree = "<group>"; };
 		79CAE3601C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestManagerProtocol.swift; sourceTree = "<group>"; };
+		79CAE3621C18BAF8000231E8 /* CurrentWeatherInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeatherInteractor.swift; sourceTree = "<group>"; };
+		79CAE3641C18BB1B000231E8 /* FiveDaysForecastInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveDaysForecastInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 		79CAE3501C18B52A000231E8 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				79CAE3621C18BAF8000231E8 /* CurrentWeatherInteractor.swift */,
+				79CAE3641C18BB1B000231E8 /* FiveDaysForecastInteractor.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -275,10 +281,12 @@
 				79CAE35F1C18B915000231E8 /* CoreDataContextManager.swift in Sources */,
 				79CAE3581C18B5A7000231E8 /* DataModel.xcdatamodeld in Sources */,
 				79CAE35C1C18B8DA000231E8 /* WeatherEntity+CoreDataProperties.swift in Sources */,
+				79CAE3651C18BB1B000231E8 /* FiveDaysForecastInteractor.swift in Sources */,
 				79CAE35D1C18B8DA000231E8 /* WeatherEntity.swift in Sources */,
 				79CAE3611C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift in Sources */,
 				79CAE3321C18B08F000231E8 /* AppDelegate.swift in Sources */,
 				79CAE34D1C18B136000231E8 /* Constants.swift in Sources */,
+				79CAE3631C18BAF8000231E8 /* CurrentWeatherInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
