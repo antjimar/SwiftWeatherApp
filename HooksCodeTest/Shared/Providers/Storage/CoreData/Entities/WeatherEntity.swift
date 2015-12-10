@@ -42,5 +42,10 @@ class WeatherEntity: NSManagedObject {
         weatherMaxTemperature = dataDictionary["main"]!["temp_max"]! as? NSNumber
         weatherMinTemperature = dataDictionary["main"]!["temp_min"]! as? NSNumber
         weatherDate = NSDate(timeIntervalSince1970: (dataDictionary["dt"]! as? NSTimeInterval)!)
+        let weatherArray = dataDictionary["weather"] as! [AnyObject]
+        let firsElement = weatherArray.first as! [String: AnyObject]
+        weatherDescription = firsElement["description"] as? String
+        let iconName = firsElement["icon"] as? String
+        weatherIconURL = NSURL(string: "http://openweathermap.org/img/w/\(iconName!).png")
     }
 }
