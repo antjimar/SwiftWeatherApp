@@ -46,7 +46,9 @@ class WeatherProvider {
         }
     }
     
-    func getFiveDaysForecastByLocation(location: CLLocation, completion: (dataArray: [WeatherEntity]?, error: NSError?) -> Void) {
+    func getFiveDaysForecastByLocation(location: CLLocation, completion: (data: AnyObject?, error: NSError?) -> Void) {
+        
+        getCacheDataByType(.Forecast, completion: completion)
         
         let params = ["lat": "\(location.coordinate.latitude)", "lon": "\(location.coordinate.longitude)", "appid": Constants.APIKey, "units": "metric"]
         
@@ -70,7 +72,7 @@ class WeatherProvider {
                     do {
                         try self.writeManagedObjectContext.save()
                     } catch let error as NSError {
-                        completion(dataArray: nil, error: error)
+                        completion(data: nil, error: error)
                     }
                     
                     var mainThreadForecastArray = [WeatherEntity]()
@@ -78,22 +80,22 @@ class WeatherProvider {
                         mainThreadForecastArray.append(self.managedObjectContext.objectInManagedObjectContext(element))
                     }
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        completion(dataArray: mainThreadForecastArray, error: nil)
+                        completion(data: mainThreadForecastArray, error: nil)
                     })
                     
                 } else {
                     // TODO: Error
-                    completion(dataArray: nil, error: NSError(domain: "", code: 1, userInfo: nil))
+                    completion(data: nil, error: NSError(domain: "", code: 1, userInfo: nil))
                 }
                 
             } else {
                 // TODO: Error
-                completion(dataArray: nil, error: NSError(domain: "", code: 1, userInfo: nil))
+                completion(data: nil, error: NSError(domain: "", code: 1, userInfo: nil))
             }
             
             }) { (task, error) in
                 print(error)
-                completion(dataArray: nil, error: error)
+                completion(data: nil, error: error)
         }
     }
     
