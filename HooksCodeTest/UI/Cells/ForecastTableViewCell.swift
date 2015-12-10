@@ -8,17 +8,20 @@
 
 import UIKit
 
-class ForecastTableViewCell: UITableViewCell {
-
+class ForecastTableViewCell: UITableViewCell, UITableViewCellStaticProtocol {
+    
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var maxTempLabel: UILabel!
+    @IBOutlet weak var minTempLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    // MARK: - UITableViewCellStaticProtocol
+    static func cellHeight() -> CGFloat {
+        return 95.0
+    }
 }

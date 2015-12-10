@@ -30,6 +30,8 @@
 		79CAE3801C1A053B000231E8 /* CurrentWeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CAE37E1C1A053B000231E8 /* CurrentWeatherTableViewCell.xib */; };
 		79CAE3831C1A0551000231E8 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3811C1A0551000231E8 /* ForecastTableViewCell.swift */; };
 		79CAE3841C1A0551000231E8 /* ForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79CAE3821C1A0551000231E8 /* ForecastTableViewCell.xib */; };
+		79CAE3871C1A1038000231E8 /* UITableView+RegisterNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3861C1A1038000231E8 /* UITableView+RegisterNib.swift */; };
+		79CAE3891C1A113F000231E8 /* WeatherTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE3881C1A113F000231E8 /* WeatherTableViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		79CAE37E1C1A053B000231E8 /* CurrentWeatherTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentWeatherTableViewCell.xib; sourceTree = "<group>"; };
 		79CAE3811C1A0551000231E8 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		79CAE3821C1A0551000231E8 /* ForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastTableViewCell.xib; sourceTree = "<group>"; };
+		79CAE3861C1A1038000231E8 /* UITableView+RegisterNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+RegisterNib.swift"; sourceTree = "<group>"; };
+		79CAE3881C1A113F000231E8 /* WeatherTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +138,9 @@
 		79CAE34E1C18B514000231E8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				79CAE3851C1A1020000231E8 /* Extensions */,
 				79CAE3781C1A04F4000231E8 /* Cells */,
+				79CAE3881C1A113F000231E8 /* WeatherTableViewManager.swift */,
 				79CAE3791C1A0521000231E8 /* WeatherViewController.swift */,
 				79CAE37A1C1A0521000231E8 /* WeatherViewController.xib */,
 			);
@@ -217,6 +223,14 @@
 				79CAE3821C1A0551000231E8 /* ForecastTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		79CAE3851C1A1020000231E8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				79CAE3861C1A1038000231E8 /* UITableView+RegisterNib.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,8 +344,10 @@
 				79CAE3751C18C1E6000231E8 /* HTTPRequestManager.swift in Sources */,
 				79CAE37F1C1A053B000231E8 /* CurrentWeatherTableViewCell.swift in Sources */,
 				79CAE35C1C18B8DA000231E8 /* WeatherEntity+CoreDataProperties.swift in Sources */,
+				79CAE3891C1A113F000231E8 /* WeatherTableViewManager.swift in Sources */,
 				79CAE3771C18C244000231E8 /* HTTPSessionManager.swift in Sources */,
 				79CAE3651C18BB1B000231E8 /* FiveDaysForecastInteractor.swift in Sources */,
+				79CAE3871C1A1038000231E8 /* UITableView+RegisterNib.swift in Sources */,
 				79CAE3831C1A0551000231E8 /* ForecastTableViewCell.swift in Sources */,
 				79CAE35D1C18B8DA000231E8 /* WeatherEntity.swift in Sources */,
 				79CAE3611C18BA2B000231E8 /* HTTPRequestManagerProtocol.swift in Sources */,

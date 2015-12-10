@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrentWeatherTableViewCell: UITableViewCell {
+class CurrentWeatherTableViewCell: UITableViewCell, UITableViewCellStaticProtocol {
 
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
@@ -20,5 +20,10 @@ class CurrentWeatherTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    // MARK: - UITableViewCellStaticProtocol
+    static func cellHeight() -> CGFloat {
+        return 230.0
     }
 }
