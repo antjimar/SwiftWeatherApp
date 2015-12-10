@@ -14,7 +14,6 @@ import CoreData
 
 extension WeatherEntity {
 
-    @NSManaged var weatherId: String?
     @NSManaged var weatherCity: String?
     @NSManaged var weatherLatitude: NSNumber?
     @NSManaged var weatherLongitud: NSNumber?

@@ -45,23 +45,27 @@ class HTTPRequestManager: HTTPRequestManagerProtocol {
             
             var taskRequest: NSURLSessionDataTask?
             taskRequest = sessionManager.session.dataTaskWithRequest(request) { (responseData, urlResponse, error) in
-                self.requestFinishedNotification()
-                let response = urlResponse as! NSHTTPURLResponse
-                if responseData != nil {
-                    do {
-                        let object = try NSJSONSerialization.JSONObjectWithData(responseData!, options: NSJSONReadingOptions.MutableContainers) as! [String : AnyObject]
-                        success?(task: taskRequest!, responseObject: object)
-                    } catch let error as NSError {
-                        print(error)
-                        failure?(task: taskRequest!, error: error)
-                    } catch {
-                        let error: NSError = NSError(domain: HTTPRequestManager.errorDomain, code: response.statusCode, userInfo: nil)
-                        print(error)
-                        failure?(task: taskRequest!, error: error)
-                    }
+                if let error = error {
+                    failure?(task: taskRequest!, error: error)
                 } else {
-                    print(error)
-                    failure?(task: taskRequest!, error: error!)
+                    self.requestFinishedNotification()
+                    let response = urlResponse as! NSHTTPURLResponse
+                    if responseData != nil {
+                        do {
+                            let object = try NSJSONSerialization.JSONObjectWithData(responseData!, options: NSJSONReadingOptions.MutableContainers) as! [String : AnyObject]
+                            success?(task: taskRequest!, responseObject: object)
+                        } catch let error as NSError {
+                            print(error)
+                            failure?(task: taskRequest!, error: error)
+                        } catch {
+                            let error: NSError = NSError(domain: HTTPRequestManager.errorDomain, code: response.statusCode, userInfo: nil)
+                            print(error)
+                            failure?(task: taskRequest!, error: error)
+                        }
+                    } else {
+                        print(error)
+                        failure?(task: taskRequest!, error: error!)
+                    }
                 }
             }
             taskRequest!.resume()

@@ -16,18 +16,31 @@ enum WeatherType: String {
 
 class WeatherEntity: NSManagedObject {
     
-    convenience init(dataDictionary: [String: AnyObject], insertIntoManagedObjectContext managedObjectContext: NSManagedObjectContext!) {
+    convenience init(currentDataWithDictionary dataDictionary: [String: AnyObject], city: String?, latitude: NSNumber?, longitude: NSNumber?, insertIntoManagedObjectContext managedObjectContext: NSManagedObjectContext!) {
         let weatherEntity = NSEntityDescription.entityForName("WeatherEntity", inManagedObjectContext: managedObjectContext)!
         self.init(entity: weatherEntity, insertIntoManagedObjectContext: managedObjectContext)
         
-        weatherId = "\(dataDictionary["id"]!)"
-        weatherCity = dataDictionary["name"]! as? String
-        weatherLatitude = dataDictionary["coord"]!["lat"]! as? NSNumber
-        weatherLongitud = dataDictionary["coord"]!["lon"]! as? NSNumber
+        if let aCity = city {
+            weatherCity = aCity
+        } else {
+            weatherCity = dataDictionary["name"]! as? String
+        }
+        
+        if let aLatitude = latitude {
+            weatherLatitude = aLatitude
+        } else {
+            weatherLatitude = dataDictionary["coord"]!["lat"]! as? NSNumber
+        }
+        
+        if let aLongitud = longitude {
+            weatherLongitud = aLongitud
+        } else {
+            weatherLongitud = dataDictionary["coord"]!["lon"]! as? NSNumber
+        }
+        
         weatherTemperature = dataDictionary["main"]!["temp"]! as? NSNumber
         weatherMaxTemperature = dataDictionary["main"]!["temp_max"]! as? NSNumber
         weatherMinTemperature = dataDictionary["main"]!["temp_min"]! as? NSNumber
         weatherDate = NSDate(timeIntervalSince1970: (dataDictionary["dt"]! as? NSTimeInterval)!)
-        
     }
 }

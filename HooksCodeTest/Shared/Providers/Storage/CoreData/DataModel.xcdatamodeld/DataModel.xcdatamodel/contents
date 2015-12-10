@@ -3,7 +3,6 @@
     <entity name="WeatherEntity" representedClassName=".WeatherEntity" syncable="YES">
         <attribute name="weatherCity" attributeType="String" syncable="YES"/>
         <attribute name="weatherDate" attributeType="Date" syncable="YES"/>
-        <attribute name="weatherId" attributeType="String" syncable="YES"/>
         <attribute name="weatherLatitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="weatherLongitud" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="weatherMaxTemperature" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -12,6 +11,6 @@
         <attribute name="weatherType" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="WeatherEntity" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="WeatherEntity" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>
