@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4oL-AX-V1v">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4oL-AX-V1v">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -23,6 +23,12 @@
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4oL-AX-V1v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8S4-mS-AcP"/>
+                <constraint firstAttribute="trailing" secondItem="4oL-AX-V1v" secondAttribute="trailing" id="cmR-lO-VEp"/>
+                <constraint firstAttribute="bottom" secondItem="4oL-AX-V1v" secondAttribute="bottom" id="sqJ-sS-0tJ"/>
+                <constraint firstItem="4oL-AX-V1v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vU5-kg-mH6"/>
+            </constraints>
         </view>
     </objects>
 </document>
