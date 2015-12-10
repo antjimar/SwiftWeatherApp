@@ -64,7 +64,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYq-Iz-5N5" userLabel="bottom_view">
-                        <rect key="frame" x="20" y="93.5" width="280" height="1"/>
+                        <rect key="frame" x="20" y="94.5" width="280" height="1"/>
                         <animations/>
                         <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -89,7 +89,7 @@
                     <constraint firstItem="b0U-4X-WBT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="hfh-cn-5Le"/>
                     <constraint firstItem="W4z-Vl-2Wn" firstAttribute="leading" secondItem="iW9-mM-i5s" secondAttribute="trailing" constant="8" id="izV-x7-OAH"/>
                     <constraint firstItem="dpU-ym-0el" firstAttribute="baseline" secondItem="OJY-Em-fSo" secondAttribute="baseline" id="kNb-Bf-1dQ"/>
-                    <constraint firstAttribute="bottom" secondItem="PYq-Iz-5N5" secondAttribute="bottom" id="lyA-as-VP0"/>
+                    <constraint firstAttribute="bottom" secondItem="PYq-Iz-5N5" secondAttribute="bottom" constant="-1" id="lyA-as-VP0"/>
                     <constraint firstItem="iW9-mM-i5s" firstAttribute="top" secondItem="b0U-4X-WBT" secondAttribute="bottom" constant="9" id="mAc-ZO-2Gg"/>
                     <constraint firstItem="ZXx-ae-egM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ml9-pv-udI"/>
                 </constraints>
