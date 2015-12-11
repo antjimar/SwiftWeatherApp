@@ -48,8 +48,6 @@ class WeatherTableViewManager: NSObject {
             }
             
             let sortedKeysAndValues = auxFiveDaysForecastDictionary.sort { $0.0.timeIntervalSince1970 < $1.0.timeIntervalSince1970 }
-//            fiveDaysForecastKeys.removeAll()
-//            fiveDaysForecastValues.removeAll()
             fiveDaysForecastKeys = sortedKeysAndValues.map {$0.0 }
             fiveDaysForecastValues = sortedKeysAndValues.map {$0.1 }
         }
