@@ -88,14 +88,12 @@ class WeatherProvider {
                         })
                         
                     } else {
-                        // TODO: Error
-                        completion(data: nil, error: NSError(domain: "", code: 1, userInfo: nil))
+                        completion(data: nil, error: NSError(domain: "com.weather.codetest", code: 127, userInfo: ["error_title": "Server error"]))
                     }
                 }
                 
             } else {
-                // TODO: Error
-                completion(data: nil, error: NSError(domain: "", code: 1, userInfo: nil))
+                completion(data: nil, error: NSError(domain: "com.weather.codetest", code: 127, userInfo: ["error_title": "Server error"]))
             }
             
             }) { (task, error) in

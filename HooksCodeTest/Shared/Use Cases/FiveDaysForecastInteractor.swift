@@ -20,11 +20,9 @@ class FiveDaysForecastInteractor {
                     let weatherListEntity = aData as! [WeatherEntity]
                     completion(weatherListEntity: weatherListEntity, error: nil)
                 } else {
-                    // TODO
-                    completion(weatherListEntity: nil, error: NSError(domain: "", code: 1, userInfo: nil))
+                    completion(weatherListEntity: nil, error: NSError(domain: "com.weather.codetest", code: 127, userInfo: ["error_title": "Server error"]))
                 }
             } else {
-                // Error
                 completion(weatherListEntity: nil, error: error)
             }
         }

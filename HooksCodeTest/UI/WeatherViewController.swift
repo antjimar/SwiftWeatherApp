@@ -50,32 +50,44 @@ class WeatherViewController: UIViewController {
     private func loadData() {
         currentWeatherInteractor.getCurrentWeatherByLocation(location!, completion: { [weak self] (weatherEntity, error) in
             if error != nil {
-                // TODO Show alert
+                self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
+                })
             } else {
                 if let currentWeather = weatherEntity {
                     self!.tableViewManager.currentWeather = currentWeather
                     
                     self!.fiveDaysForecastInteractor.getFiveDaysForecastByLocation(self!.location!, completion: { (weatherListEntity, error) in
                         if error != nil {
-                            // TODO show alert
-                            
+                            self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
+                            })
                         } else {
                             if let weatherList = weatherListEntity {
                                 self!.tableViewManager.fiveDaysForecastArray = weatherList
                                 self!.tableView.reloadData()
                             } else {
-                                // TODO show alert
+                                self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
+                                })
                             }
                         }
                     })
                 } else {
-                    // TODO show alert
+                    self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
+                    })
                 }
             }
         })
+    }
+    
+    private func showAlertViewControllerWithTitle(title: String, message: String, okButtonText: String, cancelButtonText: String?, completion: (Void) -> Void) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
-        
-        
+        let ok = UIAlertAction(title: okButtonText, style: .Default) { (_) in completion() }
+        if let cancelText = cancelButtonText {
+            let cancel = UIAlertAction(title: cancelText, style: .Cancel) { (_) in completion() }
+            alertController.addAction(cancel)
+        }
+        alertController.addAction(ok)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 }
 
