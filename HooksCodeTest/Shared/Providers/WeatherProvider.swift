@@ -121,6 +121,8 @@ class WeatherProvider {
             case .Forecast:
                 let fetchRequest = NSFetchRequest(entityName: "WeatherEntity")
                 fetchRequest.predicate = NSPredicate(format: "%K = %@", "weatherType", WeatherType.Forecast.rawValue)
+                let sortDescriptor = NSSortDescriptor(key: "weatherDate", ascending: true)
+                fetchRequest.sortDescriptors = [sortDescriptor]
                 do {
                     let fetchResults = try self.managedObjectContext.executeFetchRequest(fetchRequest) as? [WeatherEntity]
                     completion(data: fetchResults, error: nil)

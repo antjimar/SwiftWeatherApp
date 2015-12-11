@@ -15,7 +15,7 @@ class ForecastTableViewCell: UITableViewCell, UITableViewCellStaticProtocol {
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    
+    @IBOutlet weak var bottomSeparatorCellView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

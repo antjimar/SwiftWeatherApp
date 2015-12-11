@@ -19,7 +19,6 @@ class WeatherViewController: UIViewController {
     lazy var currentWeatherInteractor = CurrentWeatherInteractor()
     lazy var fiveDaysForecastInteractor = FiveDaysForecastInteractor()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         getLocation()
@@ -105,9 +104,26 @@ extension WeatherViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var view: UIView?
         if section != 0 {
-            // TODO
             view = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 40.0))
-            view?.backgroundColor = UIColor.redColor()
+            view?.backgroundColor = UIColor(red: 216/256, green: 216/256, blue: 216/256, alpha: 1.0)
+            
+            let sectionLabel = UILabel()
+            sectionLabel.font = UIFont.boldSystemFontOfSize(15)
+            sectionLabel.textColor = UIColor.blackColor()
+            
+            let dateString = NSDateFormatter.localizedStringFromDate(tableViewManager.fiveDaysForecastKeys[section - 1], dateStyle: .MediumStyle, timeStyle: .NoStyle)
+            sectionLabel.text = dateString
+            sectionLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            view!.addSubview(sectionLabel)
+            
+            let sectionLabelLeadingContraint = NSLayoutConstraint(item: sectionLabel, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 20)
+            view!.addConstraint(sectionLabelLeadingContraint)
+            
+            let sectionLabelCentrerYContraint = NSLayoutConstraint(item: sectionLabel, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1, constant: 0)
+            view!.addConstraint(sectionLabelCentrerYContraint)
+            
+            view!.layoutIfNeeded()
         }
         
         return view
