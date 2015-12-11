@@ -14,27 +14,32 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var location: CLLocation?
+    lazy var locationManager = CLLocationManager()
     
     lazy var tableViewManager = WeatherTableViewManager()
     lazy var currentWeatherInteractor = CurrentWeatherInteractor()
     lazy var fiveDaysForecastInteractor = FiveDaysForecastInteractor()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        getLocation()
         configureTableView()
         configureNavigationBar()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        getLocation()
         loadData()
     }
-    
+        
     // MARK: - Configuration
     private func getLocation() {
-        // TODO
-        location = CLLocation(latitude: 39.286836, longitude: -1.471564)
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.startUpdatingLocation()
     }
     
     private func configureNavigationBar() {
@@ -48,34 +53,36 @@ class WeatherViewController: UIViewController {
     }
     
     private func loadData() {
-        currentWeatherInteractor.getCurrentWeatherByLocation(location!, completion: { [weak self] (weatherEntity, error) in
-            if error != nil {
-                self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
-                })
-            } else {
-                if let currentWeather = weatherEntity {
-                    self!.tableViewManager.currentWeather = currentWeather
-                    
-                    self!.fiveDaysForecastInteractor.getFiveDaysForecastByLocation(self!.location!, completion: { (weatherListEntity, error) in
-                        if error != nil {
-                            self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
-                            })
-                        } else {
-                            if let weatherList = weatherListEntity {
-                                self!.tableViewManager.fiveDaysForecastArray = weatherList
-                                self!.tableView.reloadData()
-                            } else {
-                                self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
-                                })
-                            }
-                        }
-                    })
-                } else {
+        if let currentLocation = location {
+            currentWeatherInteractor.getCurrentWeatherByLocation(currentLocation, completion: { [weak self] (weatherEntity, error) in
+                if error != nil {
                     self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
                     })
+                } else {
+                    if let currentWeather = weatherEntity {
+                        self!.tableViewManager.currentWeather = currentWeather
+                        
+                        self!.fiveDaysForecastInteractor.getFiveDaysForecastByLocation(self!.location!, completion: { (weatherListEntity, error) in
+                            if error != nil {
+                                self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
+                                })
+                            } else {
+                                if let weatherList = weatherListEntity {
+                                    self!.tableViewManager.fiveDaysForecastArray = weatherList
+                                    self!.tableView.reloadData()
+                                } else {
+                                    self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
+                                    })
+                                }
+                            }
+                        })
+                    } else {
+                        self!.showAlertViewControllerWithTitle("ERROR", message: "Server Error. Maybe you don have Internet. The data are from the last connection", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
+                        })
+                    }
                 }
-            }
-        })
+                })
+        }
     }
     
     private func showAlertViewControllerWithTitle(title: String, message: String, okButtonText: String, cancelButtonText: String?, completion: (Void) -> Void) {
@@ -142,4 +149,23 @@ extension WeatherViewController: UITableViewDelegate {
         
         return view
     }
+}
+
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if (locations.first != nil) {
+            location = locations.first
+            loadData()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.Denied {
+            showAlertViewControllerWithTitle("LOCATION", message: "You have to authorize the access to location", okButtonText: "OK", cancelButtonText: nil, completion: { ()  in
+            })
+        }
+        
+        
+    }
+
 }

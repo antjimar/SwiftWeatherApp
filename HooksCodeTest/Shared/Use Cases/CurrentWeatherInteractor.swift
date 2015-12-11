@@ -19,8 +19,6 @@ class CurrentWeatherInteractor {
                 if let aData = data {
                     let weatherEnity = aData as! WeatherEntity
                     completion(weatherEntity: weatherEnity, error: nil)
-                } else {
-                    completion(weatherEntity: nil, error: NSError(domain: "com.weather.codetest", code: 127, userInfo: ["error_title": "Server error"]))
                 }
             } else {
                 completion(weatherEntity: nil, error: error)

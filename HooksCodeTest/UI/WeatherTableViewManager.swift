@@ -48,8 +48,8 @@ class WeatherTableViewManager: NSObject {
             }
             
             let sortedKeysAndValues = auxFiveDaysForecastDictionary.sort { $0.0.timeIntervalSince1970 < $1.0.timeIntervalSince1970 }
-            fiveDaysForecastKeys.removeAll()
-            fiveDaysForecastValues.removeAll()
+//            fiveDaysForecastKeys.removeAll()
+//            fiveDaysForecastValues.removeAll()
             fiveDaysForecastKeys = sortedKeysAndValues.map {$0.0 }
             fiveDaysForecastValues = sortedKeysAndValues.map {$0.1 }
         }
@@ -96,8 +96,9 @@ extension WeatherTableViewManager: UITableViewDataSource {
             
             let minTempString = String.localizedStringWithFormat("%.0f", Double((currentWeather?.weatherMinTemperature)!))
             currentWeatherCell.minTempLabel.text = "\(minTempString)ºC"
-            currentWeatherCell.iconImageView.hnk_setImageFromURL(currentWeather?.weatherIconURL as! NSURL, placeholder: nil, format: nil, failure: nil, success: nil)
-            
+            if let iconURL = currentWeather?.weatherIconURL {
+                currentWeatherCell.iconImageView.hnk_setImageFromURL(iconURL as! NSURL, placeholder: nil, format: nil, failure: nil, success: nil)
+            }
             currentWeatherCell.descriptionLabel.text = currentWeather?.weatherDescription?.uppercaseString
             currentWeatherCell.tempLabel.text = "\((currentWeather?.weatherTemperature)!)ºC"
             
